@@ -1,4 +1,4 @@
-rootProject.name = "revanced-integrations"
+rootProject.name = "privacy-revanced-integrations"
 
 pluginManagement {
     repositories {

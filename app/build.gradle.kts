@@ -1,3 +1,6 @@
+import com.android.build.gradle.internal.api.ApkVariantOutputImpl
+import org.gradle.security.internal.gnupg.GnupgSignatoryFactory
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
@@ -5,19 +8,19 @@ plugins {
 }
 
 android {
-    namespace = "app.revanced.integrations"
+    namespace = "dev.jkcarino.revanced.integrations"
     compileSdk = 33
 
     applicationVariants.all {
         outputs.all {
-            this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
+            this as ApkVariantOutputImpl
 
             outputFileName = "${rootProject.name}-$versionName.apk"
         }
     }
 
     defaultConfig {
-        applicationId = "app.revanced.integrations"
+        applicationId = "dev.jkcarino.revanced.integrations"
         minSdk = 23
         targetSdk = 33
         multiDexEnabled = false
@@ -45,11 +48,6 @@ android {
 }
 
 dependencies {
-    compileOnly(libs.appcompat)
-    compileOnly(libs.annotation)
-    compileOnly(libs.okhttp)
-    compileOnly(libs.retrofit)
-
     compileOnly(project(":stub"))
 }
 
@@ -64,10 +62,11 @@ tasks {
             val outputDirectory = layout.buildDirectory.dir("outputs/apk/release").get().asFile
             val integrationsApk = outputDirectory.resolve("${rootProject.name}-$version.apk")
 
-            org.gradle.security.internal.gnupg.GnupgSignatoryFactory().createSignatory(project).sign(
-                integrationsApk.inputStream(),
-                outputDirectory.resolve("${integrationsApk.name}.asc").outputStream(),
-            )
+            GnupgSignatoryFactory().createSignatory(project)
+                .sign(
+                    integrationsApk.inputStream(),
+                    outputDirectory.resolve("${integrationsApk.name}.asc").outputStream(),
+                )
         }
     }
 
