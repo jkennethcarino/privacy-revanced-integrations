@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "app.revanced.integrations.stub"
+    namespace = "dev.jkcarino.revanced.integrations.stub"
     compileSdk = 33
 
     defaultConfig {

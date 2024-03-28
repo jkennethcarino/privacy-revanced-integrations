@@ -25,7 +25,7 @@
       {
         "assets": [
           {
-            "path": "app/build/outputs/apk/release/revanced-integrations*"
+            "path": "app/build/outputs/apk/release/privacy-revanced-integrations*"
           }
         ],
         successComment: false
