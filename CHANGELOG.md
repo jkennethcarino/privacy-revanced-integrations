@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jkennethcarino/privacy-revanced-integrations/compare/v1.0.0...v1.1.0) (2024-03-29)
+
+
+### Features
+
+* **Gboard:** Add `Bypass Gboard signature verification checks` patch ([8b5da89](https://github.com/jkennethcarino/privacy-revanced-integrations/commit/8b5da8921840dc4bbe10552a2b1f2db10e1959c5))
+
 # 1.0.0 (2024-03-29)
 
 
